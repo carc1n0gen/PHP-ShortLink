@@ -1,0 +1,26 @@
+{
+    "name": "carc1n0gen/int-to-basen",
+    "description": "package for converting integers to another base with a customizable alphabet",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Carson Evans",
+            "email": "carsonwevans@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Carc1n0gen\\BaseN\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Carc1n0gen\\BaseN\\Test\\": "tests/"
+        }
+    },
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^4.8"
+    }
+}
