@@ -1,6 +1,6 @@
 {
-    "name": "carc1n0gen/int-to-basen",
-    "description": "package for converting integers to another base with a customizable alphabet",
+    "name": "carc1n0gen/short-link",
+    "description": "package for generating short url friendly strings from integer ids",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -11,12 +11,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "Carc1n0gen\\BaseN\\": "src/"
+            "Carc1n0gen\\ShortLink\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Carc1n0gen\\BaseN\\Test\\": "tests/"
+            "Carc1n0gen\\ShortLink\\Test\\": "tests/"
         }
     },
     "require": {},

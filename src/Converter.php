@@ -1,8 +1,8 @@
 <?php
 
-namespace Carc1n0gen\BaseN;
+namespace Carc1n0gen\ShortLink;
 
-class BaseNConverter
+class Converter
 {
     /**
      * @var string
@@ -18,17 +18,13 @@ class BaseNConverter
      * @param string $alphabet (optional)
      * @param bool $randomize (optional)
      */
-    public function __construct($alphabet = null, $randomize = false)
+    public function __construct($alphabet = null)
     {
         if (strlen($alphabet) === 1) {
             throw new \Exception('Custom alphabet must have at least 2 characters');
         }
         
         $this->alphabet = $alphabet ?: self::ALPHABET;
-        
-        if ($randomize) {
-            $this->alphabet = str_shuffle($this->alphabet);
-        }
     }
 
     /**
