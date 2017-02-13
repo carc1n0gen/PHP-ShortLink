@@ -1,12 +1,11 @@
-# PHP Int To BaseN
+# PHP-ShortLink
 
-This is a small library for converting integers to any base you want, with the
-ability to provide a custom alphabet.
+php package for generating short url friendly strings from integer ids.
 
 ## Install
 
 ```
-composer require carc1n0gen/int-to-basen
+composer require carc1n0gen/short-link
 ```
 
 ## Usage
@@ -17,7 +16,7 @@ composer require carc1n0gen/int-to-basen
 require 'vendor/autoload.php';
 
 // Initialize a converter with the default alphabet
-$converter = new \Carc1n0gen\BaseN\BaseNConverter();
+$converter = new \Carc1n0gen\ShortLink\Converter();
 
 // Get the encoded version of the int 10
 $encoded = $converter->encode(10);
@@ -26,11 +25,5 @@ $encoded = $converter->encode(10);
 $num = $converter->decode($encoded);
 
 // Initialize a converter with a custom alphabet
-$converter = new \Carc1n0gen\BaseN\BaseNConverter('abc123');
-
-// Initialize a converter and randomize the alphabet
-$converter = new \Carc1n0gen\BaseN\BaseNConverter(null, true);
-
-// Initialize a converter with a custom and randomized alphabet
-$converter = new \Carc1n0gen\BaseN\BaseNConverter('abc123', true);
+$converter = new \Carc1n0gen\ShortLink\Converter('abc123');
 ```

@@ -1,20 +1,20 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use Carc1n0gen\BaseN\BaseNConverter;
+use Carc1n0gen\ShortLink\Converter;
 
-final class BaseNConverterTest extends TestCase
+final class ConverterTest extends TestCase
 {
     public function testZeroInput()
     {
         $alphabet = 'abc123';
-        $converter = new BaseNConverter($alphabet);
+        $converter = new Converter($alphabet);
         $this->assertEquals($alphabet[0], $converter->encode(0));
     }
 
     public function testDecodedMatchesOriginal()
     {
-        $converter = new BaseNConverter();
+        $converter = new Converter();
         $num = 5;
 
         $encoded = $converter->encode($num);
@@ -23,26 +23,8 @@ final class BaseNConverterTest extends TestCase
 
     public function testDecodedMatchesOriginalWithCustomAlphabet()
     {
-        $converter = new BaseNConverter('abc123');
+        $converter = new Converter('abc123');
         $num = 10;
-
-        $encoded = $converter->encode($num);
-        $this->assertEquals($num, $converter->decode($encoded));
-    }
-
-    public function testDecodedMatchesOriginalWithRandomization()
-    {
-        $converter = new BaseNConverter(null, true);
-        $num = 24;
-
-        $encoded = $converter->encode($num);
-        $this->assertEquals($num, $converter->decode($encoded));
-    }
-
-    public function testDecodedMatchesOriginalWithCustomAlphabetAndRandomization()
-    {
-        $converter = new BaseNConverter('abc123', true);
-        $num = 144;
 
         $encoded = $converter->encode($num);
         $this->assertEquals($num, $converter->decode($encoded));
@@ -52,7 +34,7 @@ final class BaseNConverterTest extends TestCase
     {
         $this->setExpectedException(\Exception::class);
 
-        $converter = new BaseNConverter();
+        $converter = new Converter();
         $converter->encode('hello');
     }
 
@@ -60,7 +42,7 @@ final class BaseNConverterTest extends TestCase
     {
         $this->setExpectedException(\Exception::class);
 
-        $converter = new BaseNConverter();
+        $converter = new Converter();
         $converter->encode(-1);
     }
 
@@ -68,7 +50,7 @@ final class BaseNConverterTest extends TestCase
     {
         $this->setExpectedException(\Exception::class);
 
-        $converter = new BaseNConverter('abc123');
+        $converter = new Converter('abc123');
         $converter->decode('xyz456');
     }
 
@@ -76,7 +58,7 @@ final class BaseNConverterTest extends TestCase
     {
         $this->setExpectedException(\Exception::class);
 
-        $converter = new BaseNConverter();
+        $converter = new Converter();
         $converter->decode(null);
     }
 
@@ -84,7 +66,7 @@ final class BaseNConverterTest extends TestCase
     {
         $this->setExpectedException(\Exception::class);
 
-        $converter = new BaseNConverter();
+        $converter = new Converter();
         $converter->decode('');
     }
     
@@ -92,7 +74,7 @@ final class BaseNConverterTest extends TestCase
     {
         $this->setExpectedException(\Exception::class);
         
-        $converter = new BaseNConverter('1');
+        $converter = new Converter('1');
         $converter->encode(1);
     }
 }

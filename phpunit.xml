@@ -7,7 +7,7 @@
          syntaxCheck="true">
     
     <testsuites>
-        <testsuite name="BaseNConverter Test Suite">
+        <testsuite name="Converter Test Suite">
             <directory>./tests/</directory>
         </testsuite>
     </testsuites>
