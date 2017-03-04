@@ -1,10 +1,10 @@
 
 
 Code Coverage Report:     
-  2017-02-13 20:45:46     
+  2017-03-04 19:46:53     
                           
  Summary:                 
-  Classes: 100.00% (1/1)  
+  Classes: 100.00% (2/2)  
   Methods: 100.00% (3/3)  
   Lines:   100.00% (26/26)
 

@@ -2,6 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 use Carc1n0gen\ShortLink\Converter;
+use Carc1n0gen\ShortLink\Errors\DecodingException;
 
 final class ConverterTest extends TestCase
 {
@@ -48,7 +49,7 @@ final class ConverterTest extends TestCase
 
     public function testCannotDecodeFromOutsideAlphabet()
     {
-        $this->setExpectedException(\Exception::class);
+        $this->setExpectedException(DecodingException::class);
 
         $converter = new Converter('abc123');
         $converter->decode('xyz456');

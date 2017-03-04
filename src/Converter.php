@@ -2,6 +2,8 @@
 
 namespace Carc1n0gen\ShortLink;
 
+use Carc1n0gen\ShortLink\Errors\DecodingException;
+
 class Converter
 {
     /**
@@ -70,7 +72,7 @@ class Converter
             if (strpos($this->alphabet, $string[$i]) === false) {
                 // TODO: could be a better way to validate this than on every
                 // iteration of the string
-                throw new \Exception("Invalid encoded string");
+                throw new DecodingException("String contained characters not present in internal alphabet");
             }
 
             $power = ($strlen - ($i + 1));
