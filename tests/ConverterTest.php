@@ -22,6 +22,15 @@ final class ConverterTest extends TestCase
         $this->assertEquals($num, $converter->decode($encoded));
     }
 
+    public function testCanDecodeFromStringFilterToInt()
+    {
+        $converter = new Converter();
+        $num = '5';
+
+        $encoded = $converter->encode($num);
+        $this->assertEquals($num, $converter->decode($encoded));
+    }
+
     public function testDecodedMatchesOriginalWithCustomAlphabet()
     {
         $converter = new Converter('abc123');

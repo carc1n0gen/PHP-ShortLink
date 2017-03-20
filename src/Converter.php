@@ -35,7 +35,7 @@ class Converter
      */
     public function encode($num)
     {
-        if ($num < 0 || !is_int($num)) {
+        if ($num < 0 || !is_int(filter_var($num, FILTER_VALIDATE_INT))) {
             throw new \Exception('$num must be a 0 or positive integer');
         } else if ($num === 0) {
             return $this->alphabet[0];
