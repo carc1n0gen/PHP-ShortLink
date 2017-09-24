@@ -41,15 +41,14 @@ class Converter
             return $this->alphabet[0];
         }
         
-        $arr = [];
-        $base = strlen($this->alphabet);
-        
-        while ($num > 0) {
+        for ($arr = [], $base = strlen($this->alphabet); $num > 0;) {
             $rem = $num % $base;
             $num = floor($num / $base);
+            // array_unshift($arr, $this->alphabet[$rem]); // Not sure, might be slow
             $arr[] = $this->alphabet[$rem];
         }
         
+        // return join('', $arr);
         return join('', array_reverse($arr));
     }
 
@@ -59,26 +58,22 @@ class Converter
      */
     public function decode($string)
     {
+        // Cannot check for (!$string) because '0' is falsy valid
         if ($string === '' || $string === null) {
-            // Cannot do if (!$string) because '0' is falsy but can be valid input
             throw new \Exception('Cannot decode a null or empty string');
         }
 
         $base = strlen($this->alphabet);
-        $strlen = strlen($string);
-        $num = 0;
-        
-        for ($i = 0; $i < $strlen; $i++) {
-            if (strpos($this->alphabet, $string[$i]) === false) {
-                // TODO: could be a better way to validate this than on every
-                // iteration of the string
-                throw new DecodingException("String contained characters not present in internal alphabet");
+        return array_reduce(str_split($string), function ($carry, $item) use ($base) {
+            $strpos = strpos($this->alphabet, $item);
+            // Cannot do !$strpos because 0 is falsy and valid
+            if ($strpos === false) {
+                throw new DecodingException(
+                    "String contained characters not present in internal alphabet"
+                );
             }
 
-            $power = ($strlen - ($i + 1));
-            $num += strpos($this->alphabet, $string[$i]) * pow($base, $power);
-        }
-
-        return $num;
+            return ($carry * $base) + $strpos;
+        }, 0);
     }
 }
