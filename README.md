@@ -1,5 +1,7 @@
 # PHP-ShortLink
 
+[![Build Status](https://travis-ci.org/carc1n0gen/php-shortlink.svg?branch=master)](https://travis-ci.org/carc1n0gen/php-shortlink)
+
 php package for generating short url friendly strings from integer ids.
 
 ## Install
