@@ -1,6 +1,6 @@
 # PHP-ShortLink
 
-[![Build Status](https://travis-ci.org/carc1n0gen/php-shortlink.svg?branch=master)](https://travis-ci.org/carc1n0gen/php-shortlink) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.org/carc1n0gen/php-shortlink.svg?branch=master)](https://travis-ci.org/carc1n0gen/php-shortlink) [![Coverage Status](https://coveralls.io/repos/github/carc1n0gen/php-shortlink/badge.svg?branch=master)](https://coveralls.io/github/carc1n0gen/php-shortlink?branch=master) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 php package for generating short url friendly strings from integer ids.
 
