@@ -44,11 +44,9 @@ class Converter
         for ($arr = [], $base = strlen($this->alphabet); $num > 0;) {
             $rem = $num % $base;
             $num = floor($num / $base);
-            // array_unshift($arr, $this->alphabet[$rem]); // Not sure, might be slow
             $arr[] = $this->alphabet[$rem];
         }
         
-        // return join('', $arr);
         return join('', array_reverse($arr));
     }
 
