@@ -4,6 +4,11 @@ php:
   - '7.0'
   - '7.1'
   - '7.2'
+
 install: composer install
-script: vendor/bin/phpunit --coverage-clover clover.xml
+
+script:
+  - if [[ "$TRAVIS_PHP_VERSION" == '5.6' ]]; then vendor/bin/phpunit --coverage-clover clover.xml ; fi
+  - if [[ "$TRAVIS_PHP_VERSION" != '5.6' ]]; then vendor/bin/phpunit ; fi
+
 after_script: vendor/bin/php-coveralls --coverage_clover=clover.xml -v
